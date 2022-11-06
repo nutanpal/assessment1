@@ -10,6 +10,8 @@
 */
 
 //CODE HERE
+const gitDefinition =
+  "Git is a program with version control system capability for coding projects. It track changes to code and stores all versions (historic snapshots) in a single folder (repository). It helps developers keep track of changes while working on different parts of the same project. Helps multiple programmers collaborate over its many branches without loss of progress and bugs.";
 
 //////////////////PROBLEM 2////////////////////
 /*
@@ -18,6 +20,8 @@
 */
 
 //CODE HERE
+const gitHubDefinition =
+  " Github is a website that can integrate with Git. It lets us upload /  download files from our local git repository to its cloud repository .";
 
 //////////////////PROBLEM 3////////////////////
 /*
@@ -25,7 +29,8 @@
     It should be a string containing your best definition of what 'git init' does.
 */
 
-//CODE HERE
+const gitInitDefinition =
+  "git init command Initializes a new git repository (local) right here in the current folder. First command to place a project under revision control.";
 
 //////////////////PROBLEM 4////////////////////
 /*
@@ -34,6 +39,8 @@
 */
 
 //CODE HERE
+const gitCloneDefinition =
+  " git clone makes a copy of an existing repository at a different location in a new directory. It creates remote-tracking branches for each branch in the cloned repository.";
 
 //////////////////PROBLEM 5////////////////////
 /*
@@ -42,6 +49,8 @@
 */
 
 //CODE HERE
+const gitStatusDefinition =
+  " git status displays the current state of working directory( local repository) and staging area. It shows changes that have been staged, any tracked or untracked files.Commited project history is not shown. ";
 
 //////////////////PROBLEM 6////////////////////
 /*
@@ -53,6 +62,10 @@
 */
 
 //CODE HERE
+const gitAddDefinition =
+  " git add - adds any new/changed file/folder in your working directory to the git staging area (that has a list of all files recently changed). It tells git that you want to add update to a certain file in the next commit.";
+
+const gitAddCode = " git add --all ";
 
 //////////////////PROBLEM 7////////////////////
 /*
@@ -63,8 +76,10 @@
     It should be a string containing the code to commit using the message "initial commit".
 */
 
-//CODE HERE
+const gitCommitDefinition =
+  "git commit captures a snapshot of all the currntly staged changes in project. Adding commit keep track of our progress and changes while working.Each commit is a save- point in project you can go back to if there is a bug or change needed.Git will not change them unless you ask it explicitly.";
 
+const gitCommitCode = 'git commit -m "initial commit"  '
 
 //////////////////PROBLEM 8////////////////////
 /*
@@ -73,3 +88,5 @@
 */
 
 //CODE HERE
+
+const gitPushDefinition = "After a local repositrory has been modified a push is used to upload local repository contents, transfer all commited changes to a remote (central) repository."  

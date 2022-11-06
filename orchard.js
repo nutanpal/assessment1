@@ -27,15 +27,13 @@
     in cents. 
 */
 
-const fujiAcres = [2, 3, 3, 2, 2, 2, 1]
-const galaAcres = [5, 2, 4, 3, 6, 2, 4]
-const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
+const fujiAcres = [2, 3, 3, 2, 2, 2, 1];
+const galaAcres = [5, 2, 4, 3, 6, 2, 4];
+const pinkAcres = [1, 5, 4, 2, 1, 5, 4];
 
-const fujiPrice = .89 
-const galaPrice = .64
-const pinkPrice = .55
-
-
+const fujiPrice = 0.89;
+const galaPrice = 0.64;
+const pinkPrice = 0.55;
 
 // PROBLEM 1
 
@@ -51,9 +49,30 @@ const pinkPrice = .55
 
 // CODE HERE
 
+let fujiweekly = 0;
+let galaweekly = 0;
+let pinkweekly = 0;
+let totalAcres = 0;
+//looping over each array and addingup to find total weekly produce of each varitie of apple
 
+for (i = 0; i < fujiAcres.length; i++) {
+  fujiweekly += fujiAcres[i];
+}
+console.log(fujiweekly);
 
+for (i = 0; i < galaAcres.length; i++) {
+  galaweekly += galaAcres[i];
+}
+console.log(galaweekly);
 
+for (i = 0; i < pinkAcres.length; i++) {
+  pinkweekly += pinkAcres[i];
+}
+console.log(pinkweekly);
+
+//total apple production weekly is the sum of different varities
+totalAcres = fujiweekly + galaweekly + pinkweekly;
+console.log(`Total acres of apple per week : ${totalAcres}`);
 
 // PROBLEM 2
 
@@ -67,11 +86,10 @@ const pinkPrice = .55
     Log `averageDailyAcres` to the console.
 */
 
-// CODE HERE
-
-
-
-
+let averageDailyAcres = 0;
+averageDailyAcres = totalAcres / 7; //daily average is total divide by 7 days of week(length of array.)
+averageDailyAcres = Math.floor(totalAcres / 7); // average daily apple rounded to lower no.
+console.log(`Average weekly :${averageDailyAcres}`);
 
 // PROBLEM 3
 
@@ -102,12 +120,14 @@ const pinkPrice = .55
 
 */
 
-let acresLeft = 174 
-let days = 0
+let acresLeft = 174; //apples still left
+let days = 0; //`days` represents how many more days of work are left.
 
-// CODE HERE
-
-
+while (acresLeft > 0) {
+  days++;
+  acresLeft -= averageDailyAcres;
+}
+console.log(`Days work left : ${days}`);
 
 // PROBLEM 4
 
@@ -134,15 +154,26 @@ let days = 0
 */
 
 // CODE HERE
+//make new empty arrays, loop over old arrays to calculate new values, push to new arrays.
+var fujiTons = [];
+var galaTons = [];
+var pinkTons = [];
+//push method adds items to end of arrays and changes the original array.
+//Each acre yields 6.5 tons of apples. Tons of apple = acres * 6.5
+for (i = 0; i < fujiAcres.length; i++) {
+  fujiTons.push(fujiAcres[i] * 6.5);
+}
+console.log("FujiTons: ", fujiTons);
 
-// let fujiTons =
-// let galaTons =
-// let pinkTons =
+for (i = 0; i < galaAcres.length; i++) {
+  galaTons.push(galaAcres[i] * 6.5);
+}
+console.log("GalaTons: ", galaTons);
 
-
-
-
-
+for (i = 0; i < pinkAcres.length; i++) {
+  pinkTons.push(pinkAcres[i] * 6.5);
+}
+console.log("PinkTons:", pinkTons);
 
 // PROBLEM 5
 
@@ -160,16 +191,26 @@ let days = 0
     Hint: there are 2000 pounds in a ton.
 */
 
-// CODE HERE 
+// CODE HERE
 
-// let fujiPounds =
-// let galaPounds =
-// let pinkPounds =
+let fujiPounds = 0;
+let galaPounds = 0;
+let pinkPounds = 0;
 
+for (i = 0; i < fujiTons.length; i++) {
+  fujiPounds += fujiTons[i] * 2000;
+}
+console.log(`Fuji Pounds: ${fujiPounds}`);
 
+for (i = 0; i < galaTons.length; i++) {
+  galaPounds += galaTons[i] * 2000;
+}
+console.log(`Gala Pounds: ${galaPounds}`);
 
-
-
+for (i = 0; i < pinkTons.length; i++) {
+  pinkPounds += pinkTons[i] * 2000;
+}
+console.log(`Pink Pounds: ${pinkPounds}`);
 
 // PROBLEM 6
 
@@ -188,15 +229,13 @@ let days = 0
 */
 
 // CODE HERE
-
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
-
-
-
-
-
+//Round off profit in dollars
+let fujiProfit = Math.round(fujiPounds * (fujiPrice / 100));
+let galaProfit = Math.round(galaPounds * (galaPrice / 100));
+let pinkProfit = Math.round(pinkPounds * (pinkPrice / 100));
+console.log(
+  `Profits for Fuji: $${fujiProfit}, Gala: $${galaProfit}, Pink: $${pinkProfit} apples.`
+);
 
 // PROBLEM 7
 
@@ -209,3 +248,5 @@ let days = 0
 */
 
 // CODE HERE
+let totalProfit = fujiProfit + galaProfit + pinkProfit;
+console.log(`Total profit from apple orchard is $ ${totalProfit}.`);
